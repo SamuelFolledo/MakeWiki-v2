@@ -26,7 +26,7 @@ class PageCreateView(View):
             # form.save()
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect(reverse_lazy('wiki:wiki-details-page', args=[page.title])) #wiki is the app name and wiki-details-page is the name in urls.py
+            return HttpResponseRedirect(reverse_lazy('wiki:wiki-details-page', args=[page.slug])) #wiki is the app name and wiki-details-page is the name in urls.py
         return render(request, 'create.html', {'form': form})
 
 # def new_page(request):
