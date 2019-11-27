@@ -50,3 +50,29 @@ class PageListViewTests(TestCase):
             ['<Page: My Test Page>', '<Page: Another Test Page>'],
             ordered=False
         )
+
+
+class PageDetailViewTests(TestCase):
+    def test_detail_page(self):
+        # Make some test data to be displayed on the page.
+        user = User.objects.create()
+
+        page = Page.objects.create(title="My Test Page", content="test", author=user)
+        # Issue a GET request to the MakeWiki homepage.
+        # When we make a request, we get a response back.
+        response = self.client.get('/{page.slug}/',)
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 301)
+
+        # Check that the number of pages passed to the template
+        # matches the number of pages we have in the database.
+        responses = response.context
+        print(f"response is = {responses}")
+        # self.assertEqual(len(responses), 2)
+
+        self.assertQuerysetEqual(
+            responses,
+            ['<Page: My Test Page>', '<Page: Another Test Page>'],
+            ordered=False
+        )
