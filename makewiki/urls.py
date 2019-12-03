@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#static
+from django.conf import settings
+from django.conf.urls.static import static
+
 """
 CHALLENGES:
     1. Uncomment the path() for the wiki app below. Use it to direct any request (except `/admin` URLs)
@@ -35,4 +39,4 @@ urlpatterns = [
     # Authentication and other methods that comes with it
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

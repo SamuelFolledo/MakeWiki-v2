@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# STATIC https://make-school-courses.github.io/BEW-1.2-Authentication-and-Associations/#/Lessons/10-StaticFiles
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 
 # Application definition
 
