@@ -25,7 +25,8 @@ SECRET_KEY = '1yct-t!2bnkgc7j59z+9cdd2k)@y+ftqor$!aya()3if^cnlo-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'sf-makewiki-v2.herokuapp.com']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATIC https://make-school-courses.github.io/BEW-1.2-Authentication-and-Associations/#/Lessons/10-StaticFiles
 STATIC_URL = '/static/'
